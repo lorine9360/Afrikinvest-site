@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Validation Paiement - AfrikInvest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #198754;
+    }
+    form {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      background-color: #198754;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .records {
+      margin-top: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .records table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .records th, .records td {
+      border: 1px solid #ccc;
+      padding: 0.6rem;
+      text-align: center;
+    }
+    .records th {
+      background-color: #e9f7ef;
+    }
+  </style>
+</head>
+<body>
+  <h1>Soumettre une Preuve de Paiement</h1>
+  <form id="paymentForm">
+    <input type="tel" id="phone" placeholder="Votre numéro de téléphone" required>
+    <input type="number" id="amount" placeholder="Montant investi (FCFA)" required>
+    <input type="text" id="code" placeholder="Code de transaction" required>
+    <button type="submit">Enregistrer</button>
+  </form>
+
+  <div class="records">
+    <h2 style="text-align:center; color:#0d6efd;">Historique des Transactions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Numéro</th>
+          <th>Montant</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody id="recordTable">
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById('paymentForm');
+    const table = document.getElementById('recordTable');
+
+    function loadRecords() {
+      const data = JSON.parse(localStorage.getItem('afrikinvest_payments') || '[]');
+      table.innerHTML = '';
+      data.forEach(record => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${record.phone}</td><td>${record.amount}</td><td>${record.code}</td>`;
+        table.appendChild(row);
+      });
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const phone = document.getElementById('phone').value;
+      const amount = document.getElementById('amount').value;
+      const code = document.getElementById('code').value;
+
+      const record = { phone, amount, code };
+      let data = JSON.parse(localStorage.getItem('afrikinvest_payments') || '[]');
+      data.push(record);
+      localStorage.setItem('afrikinvest_payments', JSON.stringify(data));
+      form.reset();
+      loadRecords();
+    });
+
+    window.onload = loadRecords;
+  </script>
+</body>
+</html>

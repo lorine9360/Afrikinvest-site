@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tableau de bord - AfrikInvest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0d6efd;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #198754;
+    }
+    .summary {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .summary div {
+      background-color: #e9f7ef;
+      padding: 1rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      flex: 1 1 45%;
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      background-color: #198754;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bienvenue sur votre tableau de bord</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Résumé de votre compte</h2>
+      <div class="summary">
+        <div>
+          <h3>Investissement actuel</h3>
+          <p>2 000 FCFA</p>
+        </div>
+        <div>
+          <h3>Gain estimé</h3>
+          <p>2 500 FCFA</p>
+        </div>
+        <div>
+          <h3>Nombre de jours restants</h3>
+          <p>3 jours</p>
+        </div>
+        <div>
+          <h3>Dernier paiement</h3>
+          <p>Validé</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Nouvel Investissement</h2>
+      <p>Envoyez directement votre investissement par Mobile Money au numéro :</p>
+      <h3 style="color:#0d6efd;">+225 07 87 51 09 79</h3>
+      <p>Ensuite, entrez votre montant et code de transaction :</p>
+      <form style="margin-top:1rem;">
+        <input type="number" placeholder="Montant (FCFA)" style="padding:0.6rem; width:100%; margin-bottom:0.5rem; border-radius:6px; border:1px solid #ccc;" required>
+        <input type="text" placeholder="Code de transaction" style="padding:0.6rem; width:100%; margin-bottom:0.5rem; border-radius:6px; border:1px solid #ccc;" required>
+        <button type="submit" class="btn">Soumettre</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
