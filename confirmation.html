@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmation de Paiement - AfrikInvest</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+    .form-box { background-color: #fff; padding: 25px; max-width: 500px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #333; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; }
+    button { margin-top: 15px; width: 100%; background-color: #28a745; color: white; padding: 10px; border: none; border-radius: 5px; font-size: 16px; }
+    button:hover { background-color: #218838; }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Confirmation de Paiement</h2>
+    <form action="https://formsubmit.co/lorineinvest@gmail.com" method="POST">
+      <label for="nom">Nom complet</label>
+      <input type="text" id="nom" name="Nom" required>
+      <label for="numero">Numéro WhatsApp</label>
+      <input type="tel" id="numero" name="Numéro WhatsApp" required>
+      <label for="montant">Montant investi</label>
+      <input type="text" id="montant" name="Montant investi" required>
+      <label for="transaction">Numéro de transaction</label>
+      <input type="text" id="transaction" name="Numéro de transaction" required>
+      <label for="message">Message complémentaire (optionnel)</label>
+      <textarea id="message" name="Message" rows="4"></textarea>
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit">Envoyer la confirmation</button>
+    </form>
+  </div>
+</body>
+</html>
